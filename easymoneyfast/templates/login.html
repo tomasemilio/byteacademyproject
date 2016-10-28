@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheets.css') }}">
+
+
+	<title>Easy Money Fast</title>
+</head>
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper grey darken-4">
+        <a href="#!" class="brand-logo center">Ea$y MoNeY fAsT</a>
+        <div class='row left input-field'>
+          <form action="" method='post' id='login_id'>
+            <a class="col s3 ">LOGIN</a>
+            <input type="text" class='col s3' placeholder='username' name='username' id='username'>
+            <input type="password" class='col s3' placeholder='password' name='password' id='password'>
+            <button type='submit' class='grey darken-4' >SUBMIT</button>
+          </form> 
+        </div>
+        <div class='right hide-on-med-and-down'>
+          <a href="">REGISTER</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<body>
+  <div class="container row">
+    <div class="col s2 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Card Title</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s2 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Card Title</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container row">
+    <div class="col s2 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title center">100 USD</span>
+        </div>
+        <div class="card-action">
+          <a href="#" class='col s4 left'>OPEN</a>
+          <button href="#">BID</button>
+          <a href="#" class='col s4 right'>CLOSED</a>
+        </div>
+      </div>
+    </div>
+    <div class="col s2 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Card Title</span>
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--     <div class="col s4">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <div class='row'>
+            <div class='center'>
+            <span class="card-title">USD 100</span>     
+            </div>
+            <div>
+            <span class='left'>Bid Amount: USD 10</span>
+            <span class='right'>Creation Date: 12/23/23</span>    
+            </div>
+          </div>
+          <div class='row'>
+            <button class='col s12 btn-large waves-effect waves-light red'>BID</button>   
+          </div>
+          <div class='row' style='border: 1px solid-black'>
+            <div class='col 12s valign-wrapper' style='border: 1px solid black; width:100%; height:60px'>
+              <p style='center-align'>OPEN</p>
+            </div>    
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+</body>
+
+<footer  class="page-footer grey darken-4" style='height:90px; width: 100%; bottom:0; position:absolute'>
+  <div class="footer-copyright grey darken-3">
+    <div class="container">
+    	<div class='col s3 offset'>© 2016 Tomas Emilio Silva Ebensperger</div>
+    </div> 
+  </div>
+</footer>
+
+<script type="text/javascript" src={{url_for('static', filename='index.js')}}></script>
+</html>
