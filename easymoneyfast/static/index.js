@@ -30,14 +30,15 @@ $(document).ready(function(){
 									url: 'http://127.0.0.1:8000/bid100',
 									data: {'username': username},
 									success: function(result){
+										console.log(result);
 										if (result['lastuser']==='forbidden'){
 											alert('You cannot bid twice in a row.')
 										} else {
-											console.log(result)
+											console.log(result);
 											$('#balance').html('User: '+result.user+' | Balance: '+result.balance);
 											if (result['status']==='done'){
 											alert('CONGRATULATIONS!')
-										}
+											}
 										}
 									}
 								})
