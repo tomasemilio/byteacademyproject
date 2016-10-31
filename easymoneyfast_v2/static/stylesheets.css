@@ -1,0 +1,20 @@
+body {
+    background-image:    url(dark.jpg);
+	background-size: cover;
+}
+
+#register, #login {
+	color: white;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: transparent;
+}
+
+#registerform, #login, #wrongpass, #wronguser, #rightcredentials{
+	display: none;
+}
+
+#register {
+	border-style: 1px solid white;
+}
+
