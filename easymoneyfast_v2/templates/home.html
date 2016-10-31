@@ -8,17 +8,120 @@
 
   <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheets.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheets2.css') }}">
 
+<script>
+  var username = '{{username}}'
+</script>
 
 	<title>Easy Money Fast</title>
 </head>
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper grey darken-4">
+        <a href="#!" class="brand-logo center">Ea$y MoNeY fAsT</a>
+        <div class='row left input-field' id='loginform'>
+
+        </div>
+
+        <div class='left hide-on-med-and-down'>
+          <p>USER: <span name='username'>{{username}}</span>BALANCE: <span id='balance'></span></p>
+        </div>
+        <div class='right hide-on-med-and-down'>
+          <a href="/">LOGOUT</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
 
 <body>
+  <div class='container'>
+    <div class="row">
 
+        <div class="col s6 m6 center">
+          <div class="card green">
+            <div class="card-content white-text">
+              <div class='row'>
+              <span class="card-title"><strong>USD 10</strong></span>
+              </div>
+              <p class='left'>BID | USD1</p>
+              <p class='right' id='creationdate10'></p>
+            </div>
+            <div class="card-action">
+              <a style='color:white' id='message10'>OPEN</a>
+              <button id='bid10' class='leftwaves-effect waves-light btn'>BID</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s6 m6 center">
+          <div class="card orange darken-3">
+            <div class="card-content white-text">
+              <div class='row'>
+              <span class="card-title"><strong>USD 50</strong></span>
+              </div>
+              <p class='left'>BID | USD5</p>
+              <p class='right' id='creationdate50'>ferfre</p>
+            </div>
+            <div class="card-action">
+              <a style='color:white'>STATUS - <span>OPEN</span></a>
+              <button id='bid50' class='waves-effect waves-light btn'>BID</button>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col s6 m6 center">
+          <div class="card light-blue darken-4">
+            <div class="card-content white-text">
+              <div class='row'>
+              <span class="card-title"><strong>USD 100</strong></span>
+              </div>
+              <p class='left'>BID | USD10</p>
+              <p class='right' id='creationdate100'>ferfre</p>
+            </div>
+            <div class="card-action">
+              <a style='color:white'>STATUS - <span>OPEN</span></a>
+              <button id='bid100' class='waves-effect waves-light btn'>BID</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s6 m6 center">
+          <div class="card black">
+            <div class="card-content white-text">
+              <div class='row'>
+              <span class="card-title"><strong>USD 500</strong></span>
+              </div>
+              <p class='left'>BID | USD50</p>
+              <p class='right' id='creationdate500'>ferfre</p>
+            </div>
+            <div class="card-action">
+              <a style='color:white'>STATUS - <span>OPEN</span></a>
+              <button id='bid500' class='waves-effect waves-light btn'>BID</button>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
 </body>
 
+
+<footer  class="page-footer grey darken-4" style='height:90px; width: 100%; bottom:0; position:absolute'>
+  <div class="footer-copyright grey darken-3">
+    <div class="container">
+      <div class='col s3 offset'>© 2016 Tomas Emilio Silva Ebensperger</div>
+    </div> 
+  </div>
+</footer>
 
 <script type="text/javascript" src={{url_for('static', filename='index.js')}}></script>
 </html>

@@ -10,13 +10,12 @@ CORS(app)
 app.secret_key = 'whatever'
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
+	if request.method=='POST':
+		username = request.form.get('username')
+		return render_template('home.html', username=username)
 	return render_template('index.html')
-
-@app.route('/home', methods=['GET'])
-def home():
-	return render_template('')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -62,48 +61,53 @@ def logout():
 	session.pop('logged_in', None)
 	return jsonify({'username':'out'})
 
-@app.route('/balance', methods=['POST'])
-def balance():
+@app.route('/initinfo', methods=['POST'])
+def initinfo():
 	username = request.form.get('username')
 	user = User.query.filter_by(username=username).first().username 
 	user_balance = User.query.filter_by(username=username).first().balance
+	cd10 = Game.query.filter_by(total_amount=10)[-1].creation_date
+	cd50 = Game.query.filter_by(total_amount=50)[-1].creation_date
+	cd100 = Game.query.filter_by(total_amount=100)[-1].creation_date
+	cd500 = Game.query.filter_by(total_amount=500)[-1].creation_date
 
-	return jsonify({'user': user, 'balance': user_balance})
+	return jsonify({'user': user, 'balance': user_balance, 'cd10': cd10, 'cd50': cd50, 'cd100': cd100, 'cd500': cd500, })
 
-@app.route('/bid100', methods=['POST'])
-def bid100():
+
+
+@app.route('/bid<int:bid>', methods=['POST'])
+def bid(bid):
 	username = request.form.get('username')
-
-	game = Game.query.filter_by(total_amount=100)[-1]
+	bidamount = int(bid)/10
+	game = Game.query.filter_by(total_amount=bid)[-1]
 	last_player = game.last_user_id
+	query = User.query.filter_by(username=username).first()
 
 	if username == last_player:
-		return jsonify({'lastuser': 'forbidden'})
+		return jsonify({'status': 'waslast', 'balance':query.balance})
 
+	if query.balance < bidamount:
+		return jsonify({'status': 'nomoney', 'balance':query.balance})
 
-	query = User.query.filter_by(username=username).first()
-	query.balance = query.balance - 10
+	query.balance = query.balance - bidamount
 	db.session.commit()
 	new_balance = User.query.filter_by(username=username).first().balance
 
-	game = Game.query.filter_by(total_amount=100)[-1]
-	game.actual_amount = game.actual_amount + 10
+	game = Game.query.filter_by(total_amount=bid)[-1]
+	game.actual_amount = game.actual_amount + bidamount
 	game.last_user_id = username
 	db.session.commit()
 
-	if game.actual_amount == 100:
+	if game.actual_amount == bid:
 		query = User.query.filter_by(username=username).first()
-		query.balance = query.balance + 100
-		new_game = Game(creation_date=datetime.now(), total_amount=100, actual_amount=0, last_user_id=None)
+		query.balance = query.balance + bid
+		new_game = Game(creation_date=datetime.now(), total_amount=bid, actual_amount=0, last_user_id=None)
 		db.session.add(new_game)
 		new_balance = User.query.filter_by(username=username).first().balance
 		db.session.commit()
-
 		return jsonify({'user':username, 'balance':new_balance, 'status': 'done', 'lastuser': None})
 
 	return jsonify({'user':username, 'balance':new_balance, 'status':'open', 'lastuser': game.last_user_id})
-
-
 
 
 

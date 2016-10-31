@@ -10,7 +10,7 @@ var showhide = function(tag, show1, show2, hide1, hide2){
 
 var loginCheck = function(){
 	$('#loginform').on('submit', function(event){
-		event.preventDefault();
+		// event.preventDefault();
 		$('#wronguser').hide();
 		$('#wrongpass').hide();
 		$('#rightcredentials').hide();
@@ -27,7 +27,8 @@ var loginCheck = function(){
 					$('#wrongpass').show();	
 				} else if (result['status'] ==='success'){
 					$('#rightcredentials').show();
-					window.location.href='/home'
+					// window.location.href='/home'
+					console.log('nooo')
 				}
 			}
 		})
