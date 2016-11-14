@@ -5,7 +5,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheets2.css') }}">
@@ -20,17 +20,15 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper grey darken-4">
-        <a href="#!" class="brand-logo center">Ea$y MoNeY fAsT</a>
-        <div class='row left input-field' id='loginform'>
-
-        </div>
-
-        <div class='left hide-on-med-and-down'>
-          <p>USER: <span name='username'>{{username}}</span>BALANCE: <span id='balance'></span></p>
-        </div>
-        <div class='right hide-on-med-and-down'>
-          <a href="/">LOGOUT</a>
-        </div>
+          <a class="brand-logo center">Ea$y MoNeY fAsT</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a >USER:&nbsp;&nbsp;<span name='username'>{{username}}</span></a></li>
+            <li><a >BALANCE:&nbsp;&nbsp;USD&nbsp;<span id='balance'></span></a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href='#modal1' id='roulette'><i class="large material-icons modal-trigger">stars</i></a></li>
+            <li><a href="/logout">LOGOUT</a></li>
+          </ul>
       </div>
     </nav>
   </div>
@@ -38,38 +36,36 @@
 
 
 <body>
-  <div class='container'>
+  <div class='container' id='bodycontainer'>
     <div class="row">
 
         <div class="col s6 m6 center">
-          <div class="card green">
-            <div class="card-content white-text">
+          <div class="card black">
+            <div class="card-content white-text" id='card1top'>
               <div class='row'>
               <span class="card-title"><strong>USD 10</strong></span>
-              </div>
-              <p class='left'>BID | USD1</p>
-              <p class='right' id='creationdate10'></p>
+              </div>              
+              <p class='center timer offset-'><span id='creationdate10'></span></p>
             </div>
-            <div class="card-action">
+            <div class="card-action" id='card1'>
+              <button id='bid10' class='leftwaves-effect waves-light btn left-align'>BID USD 1</button>
               <a style='color:white' id='message10'>OPEN</a>
-              <button id='bid10' class='leftwaves-effect waves-light btn'>BID</button>
             </div>
           </div>
         </div>
 
 
         <div class="col s6 m6 center">
-          <div class="card orange darken-3">
-            <div class="card-content white-text">
+          <div class="card black">
+            <div class="card-content white-text" id='card2top'>
               <div class='row'>
               <span class="card-title"><strong>USD 50</strong></span>
               </div>
-              <p class='left'>BID | USD5</p>
-              <p class='right' id='creationdate50'>ferfre</p>
+              <p class='center timer' ><span id='creationdate50'></span></p>
             </div>
-            <div class="card-action">
-              <a style='color:white'>STATUS - <span>OPEN</span></a>
-              <button id='bid50' class='waves-effect waves-light btn'>BID</button>
+            <div class="card-action" id='card2'>
+              <a style='color:white' id='message50'><span>OPEN</span></a>
+              <button id='bid50' class='waves-effect waves-light btn'>BID USD 5</button>
             </div>
           </div>
         </div>
@@ -78,17 +74,16 @@
     <div class="row">
 
         <div class="col s6 m6 center">
-          <div class="card light-blue darken-4">
+          <div class="card light-blue darken-4" id='card3top'>
             <div class="card-content white-text">
               <div class='row'>
               <span class="card-title"><strong>USD 100</strong></span>
               </div>
-              <p class='left'>BID | USD10</p>
-              <p class='right' id='creationdate100'>ferfre</p>
+              <p class='center' ><span id='creationdate100'></span></p>
             </div>
-            <div class="card-action">
-              <a style='color:white'>STATUS - <span>OPEN</span></a>
-              <button id='bid100' class='waves-effect waves-light btn'>BID</button>
+            <div class="card-action" id='card3'>
+              <a style='color:white' id='message100'>OPEN</a>
+              <button id='bid100' class='waves-effect waves-light btn'>BID USD 10</button>
             </div>
           </div>
         </div>
@@ -100,28 +95,43 @@
               <div class='row'>
               <span class="card-title"><strong>USD 500</strong></span>
               </div>
-              <p class='left'>BID | USD50</p>
-              <p class='right' id='creationdate500'>ferfre</p>
+              <p class='center' ><span id='creationdate500'></span></p>
             </div>
-            <div class="card-action">
-              <a style='color:white'>STATUS - <span>OPEN</span></a>
-              <button id='bid500' class='waves-effect waves-light btn'>BID</button>
+            <div class="card-action" id='card4'>
+              <a style='color:white' id='message500'>OPEN</a>
+              <button id='bid500' class='waves-effect waves-light btn'>BID USD 50</button>
             </div>
           </div>
         </div>
 
     </div>
   </div>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4 class='center'><i class="large material-icons modal-trigger">stars</i>ROULETTE<i class="large material-icons modal-trigger">stars</i></h4>
+    <p id='roulette-message'></p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+
 </body>
 
 
-<footer  class="page-footer grey darken-4" style='height:90px; width: 100%; bottom:0; position:absolute'>
-  <div class="footer-copyright grey darken-3">
-    <div class="container">
-      <div class='col s3 offset'>© 2016 Tomas Emilio Silva Ebensperger</div>
-    </div> 
+<footer  class="page-footer grey darken-4" style='height:60px; width: 100%; bottom:0; position:absolute'>
+<div class="nav-wrapper grey darken-4 hide-on-med-and-down  ">
+  <div class='container'>
+    <a style='color:white'>Tomas Silva Ebensperger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <a href='https://www.linkedin.com/in/tsilvaebensperger'>LinkedIn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <a href='https://github.com/tomasemilio'>GitHub&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <a href='http://byteacademy.co/' class='right' >Byte Academy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <a class='right' style='color:white'>Sponsored by&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a>
   </div>
+</div>
 </footer>
 
-<script type="text/javascript" src={{url_for('static', filename='index.js')}}></script>
+<script type="text/javascript" src={{url_for('static', filename='home.js')}}></script>
 </html>

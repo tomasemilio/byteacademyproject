@@ -3,4 +3,84 @@ body {
 	background-size: cover;
 }
 
+#logo {
+	width:50px;
+	height: auto;
+	margin-top: 0px;
+}
 
+.bid-button {
+
+}
+
+#bid10, #bid50, #bid100, #bid500 {
+	width:40%;
+	background-color: #c62828 ;
+
+}
+
+#message10, #message50, #message100, #message500  {
+	display: none;
+}
+
+#bodycontainer {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.card-action {
+	min-height: 78px;
+}
+
+
+#card1 {
+	background-image: url(casino_cards.jpg);
+	background-size: cover;
+	background-position: top;
+    background-repeat: no-repeat;
+
+
+}
+
+#card2 {
+	background-image: url(traffic.jpg);
+	background-size: cover;
+	background-position: top;
+
+}
+
+
+
+#card4 {
+	background-image: url(Casino-Dice.jpg);
+	background-size: cover;
+	background-position: bottom;
+
+}
+
+#card3 {
+	background-image: url(DiceShutterstock.jpg);
+	background-size: cover;
+	background-position: left;	
+}
+
+#card3top {
+	background-image: url(DiceShutterstock.jpg);
+	background-size: cover;
+	background-position: top;	
+}
+
+#card2top {
+	background-image: url(traffic.jpg);
+/*	background-size: cover;
+*/	background-position: top;	
+}
+
+#card1top {
+	background-image: url(casino_cards.jpg);
+	/*background-size: cover;*/
+	background-position: top;
+}

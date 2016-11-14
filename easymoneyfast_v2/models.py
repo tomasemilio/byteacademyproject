@@ -16,6 +16,7 @@ class User(db.Model):
 	balance = db.Column(db.Integer)
 	transaction = db.relationship('Transaction', backref='user', lazy='dynamic')
 	last_player = db.relationship('Game', backref='user', lazy='dynamic')
+	roulette = db.relationship('Roulette', backref='user', lazy='dynamic')
 
 class Game(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -31,6 +32,13 @@ class Transaction(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
 
+class Roulette(db.Model):
+	id= db.Column(db.Integer, primary_key=True)
+	datetime = db.Column(db.DateTime)
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	
+
+
 if __name__ == '__main__':
 	db.drop_all()
 	db.create_all()
@@ -41,6 +49,7 @@ if __name__ == '__main__':
 	game3= Game(creation_date=datetime.now(), total_amount=100, actual_amount=0, last_user_id=None)
 	game4= Game(creation_date=datetime.now(), total_amount=500, actual_amount=0, last_user_id=None)
 	trans1 = Transaction(datetime=datetime.now(), user=user1, game=game1)
+	roulette1=Roulette(datetime=datetime.now(), user=user1)
 
 	db.session.add_all([user1, user2, game1, game2, game3, game4, trans1])
 	db.session.commit()

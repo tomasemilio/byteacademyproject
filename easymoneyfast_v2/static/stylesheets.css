@@ -1,6 +1,7 @@
 body {
     background-image:    url(dark.jpg);
 	background-size: cover;
+	
 }
 
 #register, #login {
@@ -10,11 +11,21 @@ body {
 	background-color: transparent;
 }
 
-#registerform, #login, #wrongpass, #wronguser, #rightcredentials{
+#registerform, #login, #wrongpass, #wronguser, #rightcredentials, #usertaken, #diffpass, #registerok{
 	display: none;
 }
 
 #register {
 	border-style: 1px solid white;
 }
+
+#loginform, #registerform {
+/*  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);*/
+
+
+}
+
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='stylesheets.css') }}">
+
+
+	<title>LOGIN</title>
+</head>
+
+
+<body>
+<div class= 'row' style='height:120px'>
+  <button class='waves-effect waves-teal' id='register' href="" style='border-radius:5px'>REGISTER</button>
+  <button class='waves-effect waves-teal' id='login' href="" style='border-radius:5px'>LOGIN</button>
+
+</div>
+<div class="row">
+  <form class="col s2 offset-s5" id='loginform' method='post'>
+      <div class="row">
+        <div class='center flow-text' style='color:white'>LOGIN</div>
+        <div class="input-field col s12 flow-text" style='color:white'>
+          <input id="username" type="text" class="validate" name='username'>
+          <label for="last_name">USERNAME</label>
+        </div>
+        <div class='center' style='color:red' id='wronguser'>Username does not exist.</div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 flow-text" style='color:white'>
+          <input id="password" type="password" class="validate">
+          <label for="last_name">PASSWORD</label>
+        </div>
+        <div class='center' style='color:red' id='wrongpass'>Wrong password.</div>
+        <div class='center' style='color:green' id='rightcredentials'>Successful login</div>
+      </div>
+      </div>
+    <div class="row">
+        <input id="last_name" type="submit" class="validate" style="visibility: hidden">
+    </div>
+  </form>
+
+  <form action="" id='registerform' style='color:white' class=' centercol s2 offset-s5'>
+    <div class="row">
+      <div class='center flow-text'>REGISTRATION</div>
+      <div class="input-field col s2 offset-s5 flow-text" style='color:white'>
+        <input id="newusername" type="text" class="validate">
+        <label for="last_name">NEW USERNAME</label>
+        <div class='center' style='color:red; font-size:20px' id='usertaken'>User taken.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s2 offset-s5 flow-text" style='color:white'>
+        <input id="newpassword" type="password" class="validate">
+        <label for="last_name">NEW PASSWORD</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s2 offset-s5 flow-text" style='color:white'>
+        <input id="newpassword2" type="password" class="validate">
+        <label for="last_name">PASSWORD CONFIRMATION</label>
+        <div class='center' style='color:red; font-size:20px' id='diffpass'>Passwords do not match.</div>
+        <div class='center' style='color:green; font-size:20px' id='registerok'>User created successfully.</div>
+      </div>
+    </div>
+    <div class="row">
+        <input id="last_name" type="submit" class="validate" style="visibility: hidden">
+    </div>
+  </form>
+</div>
+</body>
+
+
+<script type="text/javascript" src={{url_for('static', filename='login.js')}}></script>
+</html>
