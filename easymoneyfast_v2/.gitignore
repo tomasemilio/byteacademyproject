@@ -1,2 +1,5 @@
 db.db
 .db
+*.log
+*.sql
+*.sqlite
